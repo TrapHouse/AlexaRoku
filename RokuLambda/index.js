@@ -62,6 +62,26 @@ AlexaRoku.prototype.intentHandlers = {
 			response.tell("Affirmative");
 		});	
 	},
+	leftArrow: function (intent, session, response) {
+		sendCommand("/roku/leftArrow",null,function() {
+			response.tell("Affirmative");
+		});	
+	},
+	rightArrow: function (intent, session, response) {
+		sendCommand("/roku/rightArrow",null,function() {
+			response.tell("Affirmative");
+		});	
+	},
+	upArrow: function (intent, session, response) {
+		sendCommand("/roku/upArrow",null,function() {
+			response.tell("Affirmative");
+		});	
+	},
+	downArrow: function (intent, session, response) {
+		sendCommand("/roku/downArrow",null,function() {
+			response.tell("Affirmative");
+		});	
+	},
     Type: function (intent, session, response) {
 		sendCommand("/roku/type",intent.slots.Text.value,function() {
 			response.tellWithCard("Typing text: "+intent.slots.Text.value,"Roku","Typing text: "+intent.slots.Text.value);

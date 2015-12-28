@@ -92,6 +92,22 @@ var handlers = {
 		post(rokuAddress+"keypress/Select");
 		response.end("OK");	
 	},
+	"/roku/rightArrow":function(request,response) {
+		post(rokuAddress+"keypress/rightArrow");
+		response.end("OK");	
+	},
+	"/roku/leftArrow":function(request,response) {
+		post(rokuAddress+"keypress/leftArrow");
+		response.end("OK");	
+	},
+	"/roku/upArrow":function(request,response) {
+		post(rokuAddress+"keypress/upArrow");
+		response.end("OK");	
+	},
+	"/roku/downArrow":function(request,response) {
+		post(rokuAddress+"keypress/downArrow");
+		response.end("OK");	
+	},
     //This will play the last searched movie or show, we use it because it consistently resides to the right of the search box
 	"/roku/playlast":function(request,response) {
 		postSequence([
