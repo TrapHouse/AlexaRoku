@@ -92,20 +92,20 @@ var handlers = {
 		post(rokuAddress+"keypress/Select");
 		response.end("OK");	
 	},
-	"/roku/rightArrow":function(request,response) {
-		post(rokuAddress+"keypress/rightArrow");
+	"/roku/right":function(request,response) {
+		post(rokuAddress+"keypress/right");
 		response.end("OK");	
 	},
-	"/roku/leftArrow":function(request,response) {
-		post(rokuAddress+"keypress/leftArrow");
+	"/roku/left":function(request,response) {
+		post(rokuAddress+"keypress/left");
 		response.end("OK");	
 	},
-	"/roku/upArrow":function(request,response) {
-		post(rokuAddress+"keypress/upArrow");
+	"/roku/up":function(request,response) {
+		post(rokuAddress+"keypress/up");
 		response.end("OK");	
 	},
-	"/roku/downArrow":function(request,response) {
-		post(rokuAddress+"keypress/downArrow");
+	"/roku/down":function(request,response) {
+		post(rokuAddress+"keypress/down");
 		response.end("OK");	
 	},
     //This will play the last searched movie or show, we use it because it consistently resides to the right of the search box
