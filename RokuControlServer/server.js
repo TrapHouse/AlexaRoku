@@ -1,7 +1,6 @@
 var http = require('http');
 var fs = require('fs');
 var urllib = require("url");
-var Client = require('node-ssdp').Client;
 var dgram = require('dgram'); 
 
 //null will cause the server to discover the Roku on startup, hard coding a value will allow for faster startups
@@ -19,6 +18,7 @@ function post(url,callback) {
 		port:info.port,
         path: info.path,
         method: 'POST',
+		'Content-Length': 0
     };
 
 	try{
@@ -84,7 +84,7 @@ function getRequestData(request,callback) {
 //depending on the URL endpoint accessed, we use a different handler.
 //This is almost certainly not the optimal way to build a TCP server, but for our simple example, it is more than sufficient
 var handlers = {
-	"/roku/playpause":function(request,response) {
+	"/toggletv":function(request,response) {
 		post(rokuAddress+"keypress/power");
 		response.end("OK");	
 	},
