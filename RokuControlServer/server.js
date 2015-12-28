@@ -161,11 +161,21 @@ var handlers = {
 		response.end("OK");	
 	},
 	"/roku/volup":function(request,response) {
-		post(rokuAddress+"keypress/VolumeUp");
+		getRequestData(request,function(data){
+			for(var i=0; i<data; i++)
+			{
+				post(rokuAddress+"keypress/VolumeUp");
+			}
+		});
 		response.end("OK");	
 	},
 	"/roku/voldown":function(request,response) {
-		post(rokuAddress+"keypress/VolumeDown");
+		getRequestData(request,function(data){
+			for(var i=0; i<data; i++)
+			{
+				post(rokuAddress+"keypress/VolumeDown");
+			}
+		});
 		response.end("OK");	
 	},
 	"/roku/mute":function(request,response) {
