@@ -1,0 +1,46 @@
+{
+  "intents": [
+    {
+      "intent": "PlayLast",
+      "slots": []
+    },
+	{
+      "intent": "NextEpisode",
+      "slots": []
+    },
+	{
+      "intent": "LastEpisode",
+      "slots": []
+    },
+    {
+      "intent": "ToggleTV",
+      "slots": []
+    },
+    {
+      "intent": "Type",
+      "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }
+      ]
+    },
+	{
+      "intent": "PlayPause",
+      "slots": []
+    },
+	{
+      "intent": "SearchPlay",
+      "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }
+      ]
+    },
+    {
+      "intent": "HelpIntent",
+      "slots": []
+    }
+  ]
+}
