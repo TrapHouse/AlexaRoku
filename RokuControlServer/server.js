@@ -151,36 +151,40 @@ var handlers = {
 				3000,
 				rokuAddress+"keypress/Play",   //play when loaded
 			]);
-			postSequence(sequence);
-			response.end("OK");	 //respond with OK before the operation finishes
+			postSequence(sequence);			
+			tryOkResponse(response);
 		});
 	},
     //the play and pause buttons are the same and is called "Play"
 	"/roku/playpause":function(request,response) {
 		post(rokuAddress+"keypress/Play");
-		response.end("OK");	
+		tryOkResponse(response);
 	},
 	"/roku/volup":function(request,response) {
 		getRequestData(request,function(data){
+			var sequence = [];
 			for(var i=0; i<data; i++)
 			{
-				post(rokuAddress+"keypress/VolumeUp");
+				sequence.push(rokuAddress+"keypress/VolumeUp");
 			}
-		});
-		response.end("OK");	
+			postSequence(sequence);
+			tryOkResponse(response);
+		});	
 	},
 	"/roku/voldown":function(request,response) {
 		getRequestData(request,function(data){
+			var sequence = [];
 			for(var i=0; i<data; i++)
 			{
-				post(rokuAddress+"keypress/VolumeDown");
+				sequence.push(rokuAddress+"keypress/VolumeDown");
 			}
+			postSequence(sequence);
+			tryOkResponse(response);
 		});
-		response.end("OK");	
 	},
 	"/roku/mute":function(request,response) {
 		post(rokuAddress+"keypress/Mute");
-		response.end("OK");	
+		tryOkResponse(response);	
 	},
 	"/roku/nextepisode":function(request,response) {
 		postSequence([
@@ -200,7 +204,7 @@ var handlers = {
 		],function() {
 
 		});
-		response.end("OK");
+		tryOkResponse(response);
 	},
 	"/roku/lastepisode":function(request,response) {
 		postSequence([
@@ -220,10 +224,18 @@ var handlers = {
 		],function() {
 
 		});
-		response.end("OK");
+		tryOkResponse(response);
 	}
 }
-
+function tryOkResponse(response){
+	try{
+	response.end("OK");
+	}
+	catch(e)
+	{
+		console.log("error responding");
+	}
+}
 //handles and incoming request by calling the appropriate handler based on the URL
 function handleRequest(request, response){
 	try{

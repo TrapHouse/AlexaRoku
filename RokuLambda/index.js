@@ -81,12 +81,12 @@ AlexaRoku.prototype.intentHandlers = {
 		});
     },
 	VolumeDown: function (intent, session, response) {
-             sendCommand("/roku/voldown",intent.slots.amt.value,function() {
+             sendCommand("/roku/voldown",intent.slots.Amt.value,function() {
 			response.tell("Bazooper"); 
 			});
     },
 	VolumeUp: function (intent, session, response) {
-        sendCommand("/roku/volup",intent.slots.amt.value,function() {
+        sendCommand("/roku/volup",intent.slots.Amt.value,function() {
 			response.tell("I love television"); 
 			});
     }
