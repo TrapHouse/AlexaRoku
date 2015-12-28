@@ -23,6 +23,7 @@ function post(url,callback) {
 
 	try{
 		var req = http.request(opt, callback);
+		req.on("error",function(){console.log("error Posting");});
 		req.end();
 	}
 	catch(e)
@@ -43,9 +44,10 @@ function postSequence(sequence,callback) {
 		if (typeof next === "number") {
 			setTimeout(handler,next);
 		} else if (typeof next === "string") {
-			post(next,function(res) {
+			post(next,function(res,req) {
 				try{
                 res.on("data",function() {}); //required for the request to go through without error
+				
                 handler();
 				}
 				catch(e){console.log("seqerr");}
@@ -185,6 +187,10 @@ var handlers = {
 			var sequence = [];
 			for(var i=0; i<data; i++)
 			{
+				if(i>0)
+				{
+					sequence.push(100);
+				}
 				sequence.push(rokuAddress+"keypress/VolumeUp");
 			}
 			postSequence(sequence);
@@ -196,6 +202,10 @@ var handlers = {
 			var sequence = [];
 			for(var i=0; i<data; i++)
 			{
+				if(i>0)
+				{
+					sequence.push(100);
+				}
 				sequence.push(rokuAddress+"keypress/VolumeDown");
 			}
 			postSequence(sequence);
@@ -258,6 +268,8 @@ function tryOkResponse(response){
 }
 //handles and incoming request by calling the appropriate handler based on the URL
 function handleRequest(request, response){
+	request.on("ETIMEDOUT", function(e){console.log("Snake the police")});
+	response.on("ETIMEDOUT", function(e){console.log("2Snake the police")});
 	try{
 		if (handlers[request.url]) {
 				handlers[request.url](request,response);
