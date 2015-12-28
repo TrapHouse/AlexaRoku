@@ -57,7 +57,7 @@ AlexaRoku.prototype.intentHandlers = {
 			response.tell("Affirmative");
 		});	
 	},
-	ToggleTV: function (intent, session, response) {
+	selectButton: function (intent, session, response) {
 		sendCommand("/roku/selectButton",null,function() {
 			response.tell("Affirmative");
 		});	
