@@ -57,6 +57,11 @@ AlexaRoku.prototype.intentHandlers = {
 			response.tell("Affirmative");
 		});	
 	},
+	ToggleTV: function (intent, session, response) {
+		sendCommand("/roku/selectButton",null,function() {
+			response.tell("Affirmative");
+		});	
+	},
     Type: function (intent, session, response) {
 		sendCommand("/roku/type",intent.slots.Text.value,function() {
 			response.tellWithCard("Typing text: "+intent.slots.Text.value,"Roku","Typing text: "+intent.slots.Text.value);

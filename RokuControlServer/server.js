@@ -88,6 +88,10 @@ var handlers = {
 		post(rokuAddress+"keypress/power");
 		response.end("OK");	
 	},
+	"/roku/selectButton":function(request,response) {
+		post(rokuAddress+"keypress/Select");
+		response.end("OK");	
+	},
     //This will play the last searched movie or show, we use it because it consistently resides to the right of the search box
 	"/roku/playlast":function(request,response) {
 		postSequence([
