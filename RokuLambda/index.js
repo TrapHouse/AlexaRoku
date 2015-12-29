@@ -68,10 +68,10 @@ AlexaRoku.prototype.intentHandlers = {
 		});	
 	},
 	right: function (intent, session, response) {
-		sendCommand("/roku/right",null,function() {
-			response.tell("Affirmative");
-		});	
-	},
+            sendCommand("/roku/right",intent.slots.Amt.value,function() {
+			response.tell("Affirmative"); 
+			});
+    },
 	up: function (intent, session, response) {
 		sendCommand("/roku/up",null,function() {
 			response.tell("Affirmative");
