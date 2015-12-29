@@ -255,6 +255,10 @@ var handlers = {
 
 		});
 		tryOkResponse(response);
+	},
+	"/entrance/adam":function(request,response){
+		post("https://maker.ifttt.com/trigger/adamEnter/with/key/ndyOYxe0Y7qJWwcMdzGSBONc1ywSNgohmlsmZCZ6yuF");
+		tryOkResponse(response);
 	}
 }
 function tryOkResponse(response){
