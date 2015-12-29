@@ -93,10 +93,22 @@ var handlers = {
 	"/roku/selectButton":function(request,response) {
 		post(rokuAddress+"keypress/Select");
 		response.end("OK");	
-	},
+	},	
 	"/roku/right":function(request,response) {
-		post(rokuAddress+"keypress/right");
-		response.end("OK");	
+		
+		getRequestData(request,function(data){
+			var sequence = [];
+			for(var i=0; i<data; i++)
+			{
+				if(i>0)
+				{
+					sequence.push(150);
+				}
+				sequence.push(rokuAddress+"keypress/right");
+			}
+			postSequence(sequence);
+			tryOkResponse(response);
+		});
 	},
 	"/roku/left":function(request,response) {
 		post(rokuAddress+"keypress/left");
