@@ -10,20 +10,27 @@ var PORT=12345;
 
 
 //a simple wrapper to post to a url with no payload (to send roku commands)
-function post(url,callback) {
+function post(url,callback,data) {
 	var info = urllib.parse(url);
 	console.log("Posting: ",url);
     var opt = {
         host:info.hostname,
 		port:info.port,
         path: info.path,
-        method: 'POST',
-		'Content-Length': 0
+		headers: {
+          'Content-Type': 'application/json'},
+        method: 'POST'
     };
 
 	try{
 		var req = http.request(opt, callback);
 		req.on("error",function(){console.log("error Posting");});
+		
+		if(data)
+		{
+			console.log(data);
+			req.write(JSON.stringify(data));
+		}
 		req.end();
 	}
 	catch(e)
@@ -189,7 +196,7 @@ var handlers = {
 			{
 				if(i>0)
 				{
-					sequence.push(100);
+					sequence.push(300);
 				}
 				sequence.push(rokuAddress+"keypress/VolumeUp");
 			}
@@ -204,7 +211,7 @@ var handlers = {
 			{
 				if(i>0)
 				{
-					sequence.push(100);
+					sequence.push(300);
 				}
 				sequence.push(rokuAddress+"keypress/VolumeDown");
 			}
@@ -256,9 +263,18 @@ var handlers = {
 		});
 		tryOkResponse(response);
 	},
-	"/entrance/adam":function(request,response){
-		post("https://maker.ifttt.com/trigger/adamEnter/with/key/ndyOYxe0Y7qJWwcMdzGSBONc1ywSNgohmlsmZCZ6yuF");
-		tryOkResponse(response);
+	"/entranceSong":function(request,response){
+		getRequestData(request,function(data){
+			console.log(data);
+			var payload = {value1:data};
+			if(data)
+			{
+				setTimeout(function(){
+					post("https://maker.ifttt.com/trigger/entranceSong/with/key/ndyOYxe0Y7qJWwcMdzGSBONc1ywSNgohmlsmZCZ6yuF",null,payload);
+					tryOkResponse(response);
+				},60000);
+			}
+		});
 	}
 }
 function tryOkResponse(response){
