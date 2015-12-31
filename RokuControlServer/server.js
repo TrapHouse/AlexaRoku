@@ -284,7 +284,7 @@ var handlers = {
 				setTimeout(function(){
 					post("https://maker.ifttt.com/trigger/entranceSong/with/key/ndyOYxe0Y7qJWwcMdzGSBONc1ywSNgohmlsmZCZ6yuF",null,payload);
 					tryOkResponse(response);
-				},60000);
+				},40000);
 			}
 		});
 	}
