@@ -136,9 +136,20 @@ var handlers = {
 			rokuAddress+"keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
 			3000,                           //loading the home screen takes a few seconds
 			rokuAddress+"launch/12",        //launch the netflix channel (presumably this is always id 12..)
-			7000,                           //loading netflix also takes some time
-			rokuAddress+"keypress/down",    //the last searched item is always one click down and one click to the right of where the cursor starts
-			rokuAddress+"keypress/right",
+			7000,							//loading netflix also takes some time
+			rokuAddress+"keypress/Select",	//Select user profile		
+			1000,
+			rokuAddress+"keypress/down",    //the last searched item is 6 clicks down
+			1000,
+			rokuAddress+"keypress/down",
+			1000,				
+			rokuAddress+"keypress/down",
+			1000,
+			rokuAddress+"keypress/down",
+			1000,
+			rokuAddress+"keypress/down",
+			1000,
+			rokuAddress+"keypress/down",  
 			1000,                           //more delays, experimentally tweaked.. can probably be significantly reduced by more tweaking
 			rokuAddress+"keypress/Select",  //select the show from the main menu
 			3000,                           //give the show splash screen time to load up
