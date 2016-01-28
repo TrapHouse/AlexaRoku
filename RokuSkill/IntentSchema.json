@@ -4,7 +4,6 @@
       "intent": "PlayLast",
       "slots": []
     },
-	"intents": [
     {
       "intent": "RickAndMorty",
       "slots": []
