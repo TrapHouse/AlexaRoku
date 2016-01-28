@@ -42,6 +42,11 @@ AlexaRoku.prototype.intentHandlers = {
 			response.tellWithCard("Playing the last Netflix show you searched");
 		});
     },
+	 RickAndMorty: function (intent, session, response) {
+		sendCommand("/roku/RickAndMorty",null,function() {
+			response.tellWithCard("Playing Rick and Morty");
+		});
+    },
 	NextEpisode: function (intent, session, response) {
 		sendCommand("/roku/nextepisode",null,function() {
 			response.tellWithCard("Playing next episode");

@@ -5,6 +5,12 @@ PlayLast play the next episode
 PlayLast play next
 PlayLast play netflix
 
+RickAndMorty play Rick and Morty
+RickAndMorty play Rick and Mort
+RickAndMorty play Rick and Morte
+RickAndMorty play Rick and Marty
+RickAndMorty play Rich and Morty
+
 NextEpisode skip
 NextEpisode skip episode
 NextEpisode next episode

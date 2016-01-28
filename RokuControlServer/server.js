@@ -101,6 +101,10 @@ var handlers = {
 		post(rokuAddress+"keypress/Select");
 		response.end("OK");	
 	},	
+	"/roku/RickAndMorty":function(request,response) {
+		post(rokuAddress+"launch/12");
+		response.end("OK");	
+	},
 	"/roku/right":function(request,response) {
 		
 		getRequestData(request,function(data){
