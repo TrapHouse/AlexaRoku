@@ -232,7 +232,7 @@ var handlers = {
 		});
 	},
 	"/roku/mute":function(request,response) {
-		post(rokuAddress+"keypress/Mute");
+		post(rokuAddress+"keypress/VolumeMute");
 		tryOkResponse(response);	
 	},
 	"/roku/nextepisode":function(request,response) {
