@@ -4,7 +4,7 @@ var urllib = require("url");
 var dgram = require('dgram'); 
 
 //null will cause the server to discover the Roku on startup, hard coding a value will allow for faster startups
-var rokuAddress = "http://192.168.0.19:8060/";
+var rokuAddress = "http://192.168.0.25:8060/";
 var PORT=12345; 
 
 
@@ -102,8 +102,33 @@ var handlers = {
 		response.end("OK");	
 	},	
 	"/roku/RickAndMorty":function(request,response) {
-		post(rokuAddress+"launch/13535");
-		response.end("OK");	
+		postSequence([
+			rokuAddress+"keypress/home",    //wake the roku up, if its not already
+			rokuAddress+"keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
+			3000,
+			rokuAddress+"launch/13535",	//Open up Plex
+			7000,
+			rokuAddress+"keypress/down",	//Move down one		
+			400,
+			rokuAddress+"keypress/down",	//Move down one		
+			400,
+			rokuAddress+"keypress/Select",    //Select TV Shows
+			400,
+			rokuAddress+"keypress/down",	//Move down one		
+			400,
+			rokuAddress+"keypress/down",	//Move down one		
+			400,
+			rokuAddress+"keypress/Select",    //Select Library
+			400,
+			rokuAddress+"keypress/Select",    //Select AARick and Morty
+			400,
+			rokuAddress+"keypress/Select",    //Select Season 1
+			400,
+			rokuAddress+"keypress/Select",    //Select Episode 1
+			400,
+			rokuAddress+"keypress/Play"	//Play Episode 1
+			]);
+			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
 	"/roku/right":function(request,response) {
 		
