@@ -4,7 +4,7 @@ var urllib = require("url");
 var dgram = require('dgram'); 
 
 //null will cause the server to discover the Roku on startup, hard coding a value will allow for faster startups
-var rokuAddress = "http://192.168.0.25:8060/";
+var rokuAddress = "http://192.168.0.21:8060/";
 var PORT=12345; 
 
 
@@ -109,24 +109,24 @@ var handlers = {
 			rokuAddress+"launch/13535",	//Open up Plex
 			7000,
 			rokuAddress+"keypress/down",	//Move down one		
-			400,
+			700,
 			rokuAddress+"keypress/down",	//Move down one		
-			400,
+			700,
 			rokuAddress+"keypress/Select",    //Select TV Shows
-			400,
+			700,
 			rokuAddress+"keypress/down",	//Move down one		
-			400,
+			700,
 			rokuAddress+"keypress/down",	//Move down one		
-			400,
+			700,
 			rokuAddress+"keypress/Select",    //Select Library
-			400,
+			700,
 			rokuAddress+"keypress/Select",    //Select AARick and Morty
-			400,
-			rokuAddress+"keypress/Select",    //Select Season 1
-			400,
-			rokuAddress+"keypress/Select",    //Select Episode 1
-			400,
-			rokuAddress+"keypress/Play"	//Play Episode 1
+			700,
+			rokuAddress+"keypress/left",    //move left
+			700,
+			rokuAddress+"keypress/down",    //move down to random
+			700,
+			rokuAddress+"keypress/select"	//play random episode
 			]);
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
