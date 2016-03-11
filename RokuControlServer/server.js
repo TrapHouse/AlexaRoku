@@ -130,6 +130,25 @@ var handlers = {
 			]);
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
+	"/roku/IcePoseidon":function(request,response) {
+		postSequence([
+			rokuAddress+"keypress/home",    //wake the roku up, if its not already
+			rokuAddress+"keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
+			3000,
+			rokuAddress+"launch/50539",	//Open up Plex
+			7000,
+			rokuAddress+"keypress/Search",	//Open Search	
+			700,
+			rokuAddress+"keypress/Select",	//Move down one		
+			700,
+			rokuAddress+"keypress/Lit_i",	//Move down one		
+			700,
+			rokuAddress+"keypress/Lit_c",	//Move down one		
+			700,
+			rokuAddress+"keypress/Lit_e",	//Move down one	
+			]);
+			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
+	},
 	"/roku/right":function(request,response) {
 		
 		getRequestData(request,function(data){
