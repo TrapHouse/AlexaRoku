@@ -2,6 +2,7 @@ var APP_ID = "amzn1.echo-sdk-ams.app.a9c540f7-aa63-4142-834c-65ca13e146e7"; //re
 
 var AlexaSkill = require("./AlexaSkill");
 var serverinfo = require("./serverinfo");
+var https = require("https");
 var http = require("http");
 
 if (serverinfo.host == "127.0.0.1") {
@@ -37,16 +38,29 @@ function sendCommand(path,body,callback) {
     req.end();
 }
 
-function sendCheck(path) {
-
-	http.get(path, function(res) {
-	res.on('data', function (chunk) {
-		console.log(chunk);
-		//if (chunk.stream==null) {
-		//}
-	});
-	res.resume();
-	});
+function checkTwitchStream(path,isStreamCall,isNotStreamCall)
+{
+https.get(path, function(res){
+    var data = '';
+ 
+    res.on('data', function (chunk){
+    //console.log("CHUNK IS PROC");
+        data += chunk;
+    });
+ 
+    res.on('end',function(){
+        var obj = JSON.parse(data);
+        if(obj.stream!=null)
+    {
+        isStreamCall();
+    }
+    else
+    {
+        isNotStreamCall();
+    }
+    })
+ 
+});
 }
 
 AlexaRoku.prototype.intentHandlers = {
@@ -61,15 +75,17 @@ AlexaRoku.prototype.intentHandlers = {
 		});
     },
 	 IcePoseidon: function (intent, session, response) {
-		sendCheck("https://api.twitch.tv/kraken/streams/https://api.twitch.tv/kraken/streams/test_channel")
-			
-		sendCommand("/roku/https://api.twitch.tv/kraken/streams/test_channel",null,function() {
-			response.tellWithCard("Get schwifty");
-		});
-	//	else
-	//		sendCommand("/roku/IcePoseidon",null,function() {
-	//		response.tellWithCard("There is no god");
-    },
+		checkTwitchStream(
+			"https://api.twitch.tv/kraken/streams/ice_poseidon",
+			function () {
+				sendCommand("/roku/playlast",null,function() {
+				response.tellWithCard("Okay broooo. yahooooooooooooooooooo");
+				});
+			},
+			function() {
+				response.tellWithCard("There is no god");
+			});
+		},
 	NextEpisode: function (intent, session, response) {
 		sendCommand("/roku/nextepisode",null,function() {
 			response.tellWithCard("Playing next episode");

@@ -90,6 +90,27 @@ function getRequestData(request,callback) {
 	});
 }
 
+
+function rokuL(phrase) {
+    var charCount = phrase.length;
+
+    var outArray = [];
+
+    for (var i=0;i < charCount;i++)
+    {
+        var letter = phrase.charAt(i)
+        if (i==0)
+        {
+            outArray.push(rokuAddress+"keypress/Lit_"+letter);	//pass letter
+        }
+        else{   
+            outArray.push(700);	//wait 700
+            outArray.push(rokuAddress + "keypress/Lit_" + letter);	//pass letter
+        }
+
+    }
+    return outArray;
+}
 //depending on the URL endpoint accessed, we use a different handler.
 //This is almost certainly not the optimal way to build a TCP server, but for our simple example, it is more than sufficient
 var handlers = {
@@ -127,26 +148,22 @@ var handlers = {
 			rokuAddress+"keypress/down",    //move down to random
 			700,
 			rokuAddress+"keypress/select"	//play random episode
-			]);
+		]);
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
 	"/roku/IcePoseidon":function(request,response) {
-		postSequence([
-			rokuAddress+"keypress/home",    //wake the roku up, if its not already
-			rokuAddress+"keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
+	    postSequence([
+			rokuAddress + "keypress/home",    //wake the roku up, if its not already
+			rokuAddress + "keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
 			3000,
-			rokuAddress+"launch/50539",	//Open up Plex
+			rokuAddress + "launch/50539",	//Open up Plex
 			7000,
-			rokuAddress+"keypress/Search",	//Open Search	
+			rokuAddress + "keypress/Search",	//Open Search	
 			700,
-			rokuAddress+"keypress/Select",	//Move down one		
-			700,
-			rokuAddress+"keypress/Lit_i",	//Move down one		
-			700,
-			rokuAddress+"keypress/Lit_c",	//Move down one		
-			700,
-			rokuAddress+"keypress/Lit_e",	//Move down one	
-			]);
+			rokuAddress + "keypress/Select",	//Move down one		
+			700
+	    ].concat(rokuL("Ice_Poseidon"))
+        );
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
 	"/roku/right":function(request,response) {
