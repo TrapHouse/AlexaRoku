@@ -28,12 +28,25 @@ function sendCommand(path,body,callback) {
 		callback();
         res.setEncoding('utf8');
         res.on('data', function (chunk) {
+			
             console.log('Response: ' + chunk);
         });
     });
 
 	if (body) req.write(body);
     req.end();
+}
+
+function sendCheck(path) {
+
+	http.get(path, function(res) {
+	res.on('data', function (chunk) {
+		console.log(chunk);
+		//if (chunk.stream==null) {
+		//}
+	});
+	res.resume();
+	});
 }
 
 AlexaRoku.prototype.intentHandlers = {
@@ -46,6 +59,16 @@ AlexaRoku.prototype.intentHandlers = {
 		sendCommand("/roku/RickAndMorty",null,function() {
 			response.tellWithCard("Playing Rick and Morty");
 		});
+    },
+	 IcePoseidon: function (intent, session, response) {
+		sendCheck("https://api.twitch.tv/kraken/streams/https://api.twitch.tv/kraken/streams/test_channel")
+			
+		sendCommand("/roku/https://api.twitch.tv/kraken/streams/test_channel",null,function() {
+			response.tellWithCard("Get schwifty");
+		});
+	//	else
+	//		sendCommand("/roku/IcePoseidon",null,function() {
+	//		response.tellWithCard("There is no god");
     },
 	NextEpisode: function (intent, session, response) {
 		sendCommand("/roku/nextepisode",null,function() {
