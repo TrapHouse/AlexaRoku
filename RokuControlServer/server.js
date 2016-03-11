@@ -156,13 +156,13 @@ var handlers = {
 			rokuAddress + "keypress/home",    //wake the roku up, if its not already
 			rokuAddress + "keypress/home",    //go back to the home screen (even if we're in netflix, we need to reset the interface)
 			3000,
-			rokuAddress + "launch/50539",	//Open up Plex
+			rokuAddress + "launch/50539",	//Open up Twitch
 			7000,
-			rokuAddress + "keypress/Search",	//Open Search	
-			700,
+			rokuAddress + "keypress/Info",	//Open Search	
+			1000,
 			rokuAddress + "keypress/Select",	//Move down one		
 			700
-	    ].concat(rokuL("Ice_Poseidon"))
+	    ].concat(rokuL("Ice_Bound")).concat([700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/Select"])
         );
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
