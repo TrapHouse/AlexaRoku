@@ -57,10 +57,6 @@
       "slots": []
     },
 	{
-      "intent": "selectButton",
-      "slots": []
-    },
-	{
       "intent": "NextEpisode",
       "slots": []
     },

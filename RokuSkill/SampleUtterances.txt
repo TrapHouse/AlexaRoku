@@ -5,19 +5,6 @@ PlayLast play the next episode
 PlayLast play next
 PlayLast play netflix
 
-	
-	left
-	right
-	up
-	down
-    Type
-	PlayPause
-	SearchPlay
-    HelpIntent
-	MuteVol
-	VolumeDown
-	VolumeUp
-
 RickAndMorty play Rick and Morty
 RickAndMorty play Rick and Mort
 RickAndMorty play Rick and Morte
@@ -68,7 +55,6 @@ PlayPause start
 PlayPause freeze
 PlayPause go
 
-Type type {futurama|Text}
 Type type {How I met your mother|Text}
 
 SearchPlay search and play {futurama|Text}
