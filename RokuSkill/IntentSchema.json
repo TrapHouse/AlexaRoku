@@ -22,7 +22,7 @@
           {
               "name": "Text",
               "type": "LITERAL"
-          }
+          }]
     },
 	{
       "intent": "VolumeUp",
@@ -30,7 +30,7 @@
           {
               "name": "Text",
               "type": "LITERAL"
-          }
+          }]
     },
 	{
       "intent": "right",
@@ -38,7 +38,7 @@
           {
               "name": "Text",
               "type": "LITERAL"
-          }
+          }]
     },
 	{
       "intent": "left",
@@ -46,7 +46,7 @@
           {
               "name": "Text",
               "type": "LITERAL"
-          }
+          }]
     },
 	{
       "intent": "up",
