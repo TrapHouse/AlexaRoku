@@ -5,11 +5,44 @@ PlayLast play the next episode
 PlayLast play next
 PlayLast play netflix
 
+	
+	left
+	right
+	up
+	down
+    Type
+	PlayPause
+	SearchPlay
+    HelpIntent
+	MuteVol
+	VolumeDown
+	VolumeUp
+
 RickAndMorty play Rick and Morty
 RickAndMorty play Rick and Mort
 RickAndMorty play Rick and Morte
 RickAndMorty play Rick and Marty
 RickAndMorty play Rich and Morty
+
+selectButton select
+selectButton okay
+selectButton enter
+
+left left
+left to left
+left move left
+
+right right
+right to right
+right move right
+
+up up
+up to up
+up move up
+
+down down
+down to down
+down move down
 
 NextEpisode skip
 NextEpisode skip episode
@@ -65,3 +98,11 @@ HelpIntent what do you do
 HelpIntent how do I use you
 HelpIntent how can I use you
 HelpIntent what can you tell me
+
+IcePoseidon play Ice
+IcePoseidon play Ice Poseidon
+IcePoseidon find Ice Poseidon
+IcePoseidon to play Ice
+IcePoseidon to play Ice Poseidon
+IcePoseidon Fuck my ass
+IcePoseidon to Fuck my ass
