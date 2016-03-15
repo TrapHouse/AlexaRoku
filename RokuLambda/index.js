@@ -78,7 +78,7 @@ AlexaRoku.prototype.intentHandlers = {
 		checkTwitchStream(
 			"https://api.twitch.tv/kraken/streams/ice_poseidon",
 			function () {
-				sendCommand("/roku/playlast",null,function() {
+				sendCommand("/roku/IcePoseidon",null,function() {
 				response.tellWithCard("Okay broooo. yahooooooooooooooooooo");
 				});
 			},

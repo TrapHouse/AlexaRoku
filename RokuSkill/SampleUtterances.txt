@@ -11,6 +11,26 @@ RickAndMorty play Rick and Morte
 RickAndMorty play Rick and Marty
 RickAndMorty play Rich and Morty
 
+selectButton select
+selectButton okay
+selectButton enter
+
+left left
+left to left
+left move left
+
+right right
+right to right
+right move right
+
+up up
+up to up
+up move up
+
+down down
+down to down
+down move down
+
 NextEpisode skip
 NextEpisode skip episode
 NextEpisode next episode
@@ -35,7 +55,6 @@ PlayPause start
 PlayPause freeze
 PlayPause go
 
-Type type {futurama|Text}
 Type type {How I met your mother|Text}
 
 SearchPlay search and play {futurama|Text}
@@ -65,3 +84,11 @@ HelpIntent what do you do
 HelpIntent how do I use you
 HelpIntent how can I use you
 HelpIntent what can you tell me
+
+IcePoseidon play Ice
+IcePoseidon play Ice Poseidon
+IcePoseidon find Ice Poseidon
+IcePoseidon to play Ice
+IcePoseidon to play Ice Poseidon
+IcePoseidon Fuck my ass
+IcePoseidon to Fuck my ass

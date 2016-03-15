@@ -8,6 +8,54 @@
       "intent": "RickAndMorty",
       "slots": []
     },
+    {
+      "intent": "IcePoseidon",
+      "slots": []
+    },
+	{
+      "intent": "selectButton",
+      "slots": []
+    },
+	{
+      "intent": "VolumeDown",
+       "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }]
+    },
+	{
+      "intent": "VolumeUp",
+       "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }]
+    },
+	{
+      "intent": "right",
+       "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }]
+    },
+	{
+      "intent": "left",
+       "slots": [
+          {
+              "name": "Text",
+              "type": "LITERAL"
+          }]
+    },
+	{
+      "intent": "up",
+      "slots": []
+    },
+	{
+      "intent": "down",
+      "slots": []
+    },
 	{
       "intent": "NextEpisode",
       "slots": []
@@ -28,6 +76,10 @@
               "type": "LITERAL"
           }
       ]
+    },
+	{
+      "intent": "MuteVol",
+      "slots": []
     },
 	{
       "intent": "PlayPause",
