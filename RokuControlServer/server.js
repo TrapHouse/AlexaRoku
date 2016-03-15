@@ -162,7 +162,7 @@ var handlers = {
 			1000,
 			rokuAddress + "keypress/Select",	//Move down one		
 			700
-	    ].concat(rokuL("Ice_Bound")).concat([700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/Select"])
+	    ].concat(rokuL("Ice_Poseidon")).concat([700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/right",700,rokuAddress + "keypress/Select"])
         );
 			response.end("OK"); //we provide an OK response before the operation finishes so that our AWS Lambda service doesn't wait around through our delays	
 	},
