@@ -183,16 +183,52 @@ var handlers = {
 		});
 	},
 	"/roku/left":function(request,response) {
-		post(rokuAddress+"keypress/left");
-		response.end("OK");	
+		
+			getRequestData(request,function(data){
+			var sequence = [];
+			for(var i=0; i<data; i++)
+			{
+				if(i>0)
+				{
+					sequence.push(150);
+				}
+				sequence.push(rokuAddress+"keypress/left");
+			}
+			postSequence(sequence);
+			tryOkResponse(response);
+		});
 	},
 	"/roku/up":function(request,response) {
-		post(rokuAddress+"keypress/up");
-		response.end("OK");	
+
+					getRequestData(request,function(data){
+			var sequence = [];
+			for(var i=0; i<data; i++)
+			{
+				if(i>0)
+				{
+					sequence.push(150);
+				}
+				sequence.push(rokuAddress+"keypress/up");
+			}
+			postSequence(sequence);
+			tryOkResponse(response);
+		});
 	},
 	"/roku/down":function(request,response) {
-		post(rokuAddress+"keypress/down");
-		response.end("OK");	
+	
+			getRequestData(request,function(data){
+			var sequence = [];
+			for(var i=0; i<data; i++)
+			{
+				if(i>0)
+				{
+					sequence.push(150);
+				}
+				sequence.push(rokuAddress+"keypress/down");
+			}
+			postSequence(sequence);
+			tryOkResponse(response);
+		});
 	},
     //This will play the last searched movie or show, we use it because it consistently resides to the right of the search box
 	"/roku/playlast":function(request,response) {

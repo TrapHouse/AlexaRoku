@@ -15,21 +15,30 @@ selectButton select
 selectButton okay
 selectButton enter
 
-left left
-left to left
-left move left
+left left {Amt}
+left to left {Amt}
+left move left {Amt}
 
-right right
-right to right
-right move right
+right right {Amt}
+right to right {Amt}
+right move right {Amt}
 
-up up
-up to up
-up move up
+up up {Amt}
+up to up {Amt}
+up move up {Amt}
 
-down down
-down to down
-down move down
+down down {Amt}
+down to down {Amt}
+down move down {Amt}
+
+VolumeDown Volume down by {Amt}
+VolumeDown Turn down by {Amt}
+VolumeDown lower volume down by {Amt}
+
+VolumeUp Volume Up by {Amt}
+VolumeUp Turn Up by {Amt}
+VolumeUp lower volume Up by {Amt}
+
 
 NextEpisode skip
 NextEpisode skip episode
@@ -90,5 +99,3 @@ IcePoseidon play Ice Poseidon
 IcePoseidon find Ice Poseidon
 IcePoseidon to play Ice
 IcePoseidon to play Ice Poseidon
-IcePoseidon Fuck my ass
-IcePoseidon to Fuck my ass

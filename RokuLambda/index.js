@@ -107,9 +107,9 @@ AlexaRoku.prototype.intentHandlers = {
 		});	
 	},
 	left: function (intent, session, response) {
-		sendCommand("/roku/left",null,function() {
-			response.tell("Affirmative");
-		});	
+	   sendCommand("/roku/left",intent.slots.Amt.value,function() {
+			response.tell("Affirmative"); 
+			});
 	},
 	right: function (intent, session, response) {
             sendCommand("/roku/right",intent.slots.Amt.value,function() {
@@ -117,14 +117,14 @@ AlexaRoku.prototype.intentHandlers = {
 			});
     },
 	up: function (intent, session, response) {
-		sendCommand("/roku/up",null,function() {
-			response.tell("Affirmative");
-		});	
+		 sendCommand("/roku/up",intent.slots.Amt.value,function() {
+			response.tell("Affirmative"); 
+			});
 	},
 	down: function (intent, session, response) {
-		sendCommand("/roku/down",null,function() {
-			response.tell("Affirmative");
-		});	
+		 sendCommand("/roku/down",intent.slots.Amt.value,function() {
+			response.tell("Affirmative"); 
+			});
 	},
     Type: function (intent, session, response) {
 		sendCommand("/roku/type",intent.slots.Text.value,function() {

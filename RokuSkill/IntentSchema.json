@@ -20,41 +20,49 @@
       "intent": "VolumeDown",
        "slots": [
           {
-              "name": "Text",
-              "type": "LITERAL"
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
           }]
     },
 	{
       "intent": "VolumeUp",
        "slots": [
           {
-              "name": "Text",
-              "type": "LITERAL"
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
           }]
     },
 	{
       "intent": "right",
        "slots": [
           {
-              "name": "Text",
-              "type": "LITERAL"
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
           }]
     },
 	{
       "intent": "left",
        "slots": [
           {
-              "name": "Text",
-              "type": "LITERAL"
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
           }]
     },
 	{
       "intent": "up",
-      "slots": []
+        "slots": [
+          {
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
+          }]
     },
 	{
       "intent": "down",
-      "slots": []
+        "slots": [
+          {
+              "name": "Amt",
+              "type": "AMAZON.NUMBER"
+          }]
     },
 	{
       "intent": "NextEpisode",
